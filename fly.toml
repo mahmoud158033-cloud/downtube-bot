@@ -1,6 +1,6 @@
 # fly.toml app configuration file generated for downtube-bot on 2026-11-07T18:25:34Z
 #
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file
 #
 
 app = 'downtube-bot'
@@ -11,6 +11,7 @@ primary_region = 'ams'
 
 [env]
   PORT = '8080'
+  BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21DL9nEjJ8PG15do2ALQ"
 
 [http_service]
   internal_port = 8080
@@ -25,3 +26,4 @@ primary_region = 'ams'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
+
