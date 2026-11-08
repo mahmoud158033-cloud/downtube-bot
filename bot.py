@@ -1,5 +1,5 @@
 import os
-from pyrogram import Client, filters, idle
+from pyrogram import Client, filters
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import threading
 
@@ -7,7 +7,7 @@ API_ID = 38404667
 API_HASH = "8d1844ef188331d279093845c479e00b"
 BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21Dl9nEjJ8PG15do2ALQ"
 
-# تشغيل سيرفر الويب الوهمي أولاً على المنفذ 8080 لإرضاء منصة Fly.io
+# تشغيل سيرفر الويب الوهمي لإرضاء منصة Fly.io ومنع التوقف
 class SimpleHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -23,7 +23,7 @@ def run_server():
 server_thread = threading.Thread(target=run_server, daemon=True)
 server_thread.start()
 
-# إعداد وتشغيل بوت تيليجرام
+# إعداد وتجهيز بوت تيليجرام
 app = Client(
     "downtube_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN
 )
@@ -34,6 +34,6 @@ async def start_command(client, message):
         "أهلاً بيكم في بوت التحميل DownTube! أرسل لي رابط الفيديو لتحميله."
     )
 
-print("Bot and Web Server are starting...")
-app.start()
-idle()
+if __name__ == "__main__":
+    print("Bot and Web Server are starting...")
+    app.run()
