@@ -1,16 +1,13 @@
 import os
 from pyrogram import Client, filters
 
-# جلب البيانات من متغيرات البيئة بأمان
-API_ID = int(os.environ.get("API_ID", "2040"))
-API_HASH = os.environ.get("API_HASH", "your_api_hash")
+# البيانات الصحيحة للبوت
+API_ID = 38404667
+API_HASH = "أكتب_هنا_الـ_api_hash_الحقيقي_الخاص_بحسابك"  # ليس التوكن
 BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21DL9nEjJ8PG15do2ALQ"
 
 app = Client(
-    "downtube_bot",
-    api_id=API_ID,
-    api_hash=API_HASH,  # تم تصحيح الخطأ الإملائي هنا
-    bot_token=BOT_TOKEN,
+    "downtube_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN
 )
 
 
