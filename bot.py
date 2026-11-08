@@ -1,5 +1,5 @@
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 
 # البيانات الصحيحة للبوت
 API_ID = 38404667
@@ -18,6 +18,7 @@ async def start_command(client, message):
   )
 
 
-# تشغيل البوت
+# تشغيل البوت بثبات على السيرفر
 print("Bot is starting...")
-app.run()
+app.start()
+idle()
