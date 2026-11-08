@@ -1,5 +1,5 @@
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import threading
 
@@ -7,12 +7,12 @@ API_ID = 38404667
 API_HASH = "8d1844ef188331d279093845c479e00b"
 BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21Dl9nEjJ8PG15do2ALQ"
 
-# تشغيل سيرفر الويب الوهمي لإرضاء منصة Fly.io ومنع التوقف
+# تشغيل سيرفر الويب الوهمي على المنفذ 8080 لإرضاء منصة Fly.io
 class SimpleHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Bot is alive and running!")
+        self.wfile.write(b"OK")
     def log_message(self, format, *args):
         return
 
@@ -20,10 +20,11 @@ def run_server():
     server = HTTPServer(('0.0.0.0', 8080), SimpleHandler)
     server.serve_forever()
 
+# تشغيل السيرفر في خلفية النظام
 server_thread = threading.Thread(target=run_server, daemon=True)
 server_thread.start()
 
-# إعداد وتجهيز بوت تيليجرام
+# إعداد وتشغيل بوت تيليجرام
 app = Client(
     "downtube_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN
 )
@@ -35,5 +36,7 @@ async def start_command(client, message):
     )
 
 if __name__ == "__main__":
-    print("Bot and Web Server are starting...")
-    app.run()
+    print("Starting Telegram Bot...")
+    app.start()
+    print("Bot started successfully!")
+    idle()
