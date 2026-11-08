@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 
 # البيانات الصحيحة للبوت
 API_ID = 38404667
-API_HASH = "أكتب_هنا_الـ_api_hash_الحقيقي_الخاص_بحسابك"  # ليس التوكن
+API_HASH = "8d1844ef188331d279093845c479e00b"
 BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21DL9nEjJ8PG15do2ALQ"
 
 app = Client(
