@@ -6,7 +6,7 @@ PORT = '8080'
 BOT_TOKEN = "9061828584:AAGzFmU6E-ms9vp21Dl9nEjJ8PG15do2ALQ"
 
 [processes]
-worker = "python bot.py"
+worker = "python3 bot.py"
 
 [[vm]]
 memory = '1gb'
